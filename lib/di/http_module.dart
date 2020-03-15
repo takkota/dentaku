@@ -1,7 +1,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_flutter_template/resources/api/rest_client.dart';
+import 'package:dentaku/resources/api/rest_client.dart';
 
 @registerModule
 abstract class HttpModule {

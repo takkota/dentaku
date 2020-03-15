@@ -1,4 +1,4 @@
-name: my_flutter_template
+name: dentaku
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -87,9 +87,9 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 flutter_rename_app:
-  application_name: My Flutter Template
-  dart_package_name: my_flutter_template
-  application_id: net.onlybiz.my_flutter_template
-  bundle_id: net.onlybiz.my_flutter_template
-  android_package_name: net.onlybiz.my_flutter_template
+  application_name: Dentaku
+  dart_package_name: dentaku
+  application_id: net.onlybiz.dentaku
+  bundle_id: net.onlybiz.dentaku
+  android_package_name: net.onlybiz.dentaku
 

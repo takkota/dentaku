@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:my_flutter_template/pages/calclulator/calculator.dart';
-import 'package:my_flutter_template/pages/home/home.dart';
+import 'package:dentaku/pages/calclulator/calculator.dart';
+import 'package:dentaku/pages/home/home.dart';
 
 typedef WidgetPageBuilder = Widget Function(
     BuildContext context,

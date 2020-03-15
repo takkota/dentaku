@@ -1,4 +1,4 @@
-# my_flutter_template
+# Dentaku
 
 A new Flutter project.
 

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
-import 'package:my_flutter_template/pages/home/home.dart';
+import 'package:dentaku/pages/home/home.dart';
 
 import 'consts.dart';
 import 'resources/api/rest_client.dart';

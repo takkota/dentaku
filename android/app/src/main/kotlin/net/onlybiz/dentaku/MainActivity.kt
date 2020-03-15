@@ -1,4 +1,4 @@
-package net.onlybiz.my_flutter_template
+package net.onlybiz.dentaku
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

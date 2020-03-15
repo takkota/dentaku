@@ -1,2 +1,2 @@
 
-const appName = 'テンプレートアプリ';
+const appName = 'Dentaku';

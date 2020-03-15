@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
-import 'package:my_flutter_template/pages/calclulator/calculator.dart';
+import 'package:dentaku/pages/calclulator/calculator.dart';
 
 import '../../app.dart';
 

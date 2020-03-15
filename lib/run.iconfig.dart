@@ -5,13 +5,13 @@
 // **************************************************************************
 
 import 'package:dio/dio.dart';
-import 'package:my_flutter_template/di/http_module.dart';
-import 'package:my_flutter_template/resources/api/rest_client.dart';
-import 'package:my_flutter_template/resources/shared_preferences/shared_preferences_wrapper.dart';
-import 'package:my_flutter_template/di/local_data_module.dart';
+import 'package:dentaku/di/http_module.dart';
+import 'package:dentaku/resources/api/rest_client.dart';
+import 'package:dentaku/resources/shared_preferences/shared_preferences_wrapper.dart';
+import 'package:dentaku/di/local_data_module.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:my_flutter_template/di/ui_module.dart';
+import 'package:dentaku/di/ui_module.dart';
 import 'package:get_it/get_it.dart';
 
 Future<void> $initGetIt(GetIt g, {String environment}) async {
