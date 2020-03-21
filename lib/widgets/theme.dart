@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 
 ThemeData buildTheme() {
-  final base = ThemeData.light();
+  final base = ThemeData.dark();
   const accentColor = Color(0xFFF07467);
   const fontFamily = 'Hiragino Maru Gothic ProN';
 
   return ThemeData(
+    primarySwatch: Colors.blueGrey,
+    scaffoldBackgroundColor: Colors.white12,
     primaryTextTheme: base.primaryTextTheme.apply(
       fontFamily: fontFamily,
     ),
@@ -22,16 +24,14 @@ ThemeData buildTheme() {
     textTheme: base.textTheme
         .copyWith(
       headline: TextStyle(
-        color: Colors.black87,
+        color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
     )
         .apply(
       fontFamily: fontFamily,
     ),
-    primarySwatch: Colors.blue,
     accentColor: accentColor,
-    scaffoldBackgroundColor: Colors.lightBlue[50],
     cardTheme: CardTheme(
       elevation: 4,
       shape: RoundedRectangleBorder(
