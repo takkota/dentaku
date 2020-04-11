@@ -28,7 +28,7 @@ class App extends StatelessWidget {
 
     return MaterialApp(
       title: appName,
-      theme: buildTheme(),
+      theme: ThemeData.dark(),
       onGenerateRoute: (settings) => Provider.of<Router>(context, listen: false)
           .onGenerateRoute(settings),
       navigatorKey: navigatorKey,
@@ -78,6 +78,5 @@ class AppModel with ChangeNotifier {
   @override
   void dispose() {
     super.dispose();
-    print('dispose app model');
   }
 }

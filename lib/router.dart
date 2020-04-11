@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:dentaku/pages/calclulator/calculator.dart';
 import 'package:dentaku/pages/home/home.dart';
 
 typedef WidgetPageBuilder = Widget Function(
@@ -14,8 +13,6 @@ class Router {
 
   final _basicRoutes = <String, WidgetPageBuilder>{
     Home.routeName: (context, settings) => Home.newInstance(),
-    CalculatorPage.routeName: (context, settings) =>
-        CalculatorPage.newInstance(),
   };
 
   Route<dynamic> onGenerateRoute(RouteSettings settings) {

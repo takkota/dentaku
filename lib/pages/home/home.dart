@@ -1,14 +1,13 @@
 
-import 'package:dentaku/widgets/horizontal_split_widget.dart';
+import 'package:dentaku/pages/models/calculator_model.dart';
+import 'package:dentaku/widgets/button.dart';
+import 'package:dentaku/widgets/calculator.dart';
+import 'package:dentaku/widgets/calc_block.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
-import 'package:dentaku/pages/calclulator/calculator.dart';
-import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
-
-import '../../app.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Home extends StatelessWidget {
 
@@ -19,59 +18,54 @@ class Home extends StatelessWidget {
   static Widget newInstance() {
     return ChangeNotifierProvider(
       child: const Home._(),
-      create: (context) => _Model(),
+      create: (context) => CalculatorModel(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final initialValue = Provider.of<AppModel>(context).getInitialValue();
-    final navigatorKey = GetIt.instance.get<GlobalKey<NavigatorState>>();
+    //final initialValue = Provider.of<AppModel>(context).getInitialValue();
+    //final navigatorKey = GetIt.instance.get<GlobalKey<NavigatorState>>();
+    final calculatorMinHeight = MediaQuery.of(context).size.height / 6;
+    final model = Provider.of<CalculatorModel>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const ImageIcon(
-          AssetImage('assets/logo.png'),
-          color: Colors.white,
-          size: 150,
-        ),
-      ),
-      body: HorizontalSplitWidget.newInstance(
-        maxHeight: 300,
-        minHeight: 50,
-        child: Container(
-          color: Colors.amberAccent,
-          child: Center(
-            child: Text('計算機領域'),
+      body: SlidingUpPanel(
+          body: Container(
+            margin: EdgeInsets.only(bottom: calculatorMinHeight),
+            child: ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                if (model.getStackAt(index).getElements().isNotEmpty) {
+                  return CalcBlock(model.getStackAt(index));
+                } else {
+                  return Container();
+                }
+              },
+              reverse: true,
+              itemCount: model.getStackCount(),
+            ),
           ),
-        ),
-      )
-
-      //bottomSheet: SolidBottomSheet(
-      //  showOnAppear: true,
-      //  maxHeight: 400,
-      //  headerBar: Container(
-      //    color: Colors.blue,
-      //    child: Center(
-      //      child: Text('swipe!'),
-      //    ),
-      //    height: 30,
-      //  ),
-      //  body: Container(
-      //    color: Colors.amberAccent,
-      //    child: Center(
-      //      child: Text('計算機領域'),
-      //    ),
-      //  ),
-      //)
+          panel: Calculator(
+            displayValue: model.isFinalized() ? model.getResultDisplay()
+                : model.getInputDisplay(),
+            interimResult: model.getResultDisplay(),
+            onNumber: (BuildContext context, Input input) =>
+                model.inputNumber(input as Number),
+            onOperator: (BuildContext context, Input input) =>
+              model.inputOperator(input as Operator),
+            onEqual: (BuildContext context, Input input) =>
+                model.inputEqual(input as Equal),
+          ),
+          parallaxEnabled: true,
+          parallaxOffset: 1.0,
+          minHeight: calculatorMinHeight,
+          margin: EdgeInsets.symmetric(horizontal: 5.0),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(12.0),
+            topRight: Radius.circular(12.0),
+          ),
+      ),
     );
   }
 }
 
-class _Model extends ChangeNotifier {
-  @override
-  void dispose() {
-    super.dispose();
-  }
-}
